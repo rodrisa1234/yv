@@ -1,140 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Digital Marketing Hub</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cloudflare Pages – directories, publishing, Q&A, and video embeds in one mobile-first page" />
+  <title>Your Brand – Directories & Profiles</title>
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="color-scheme" content="light dark" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f9fc;
-      color: #333;
-    }
-    header {
-      background: #1a73e8;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 15px;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    section h2 {
-      color: #1a73e8;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-    .links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .links a:hover {
-      background: #1a73e8;
-      color: white;
-      border-color: #1a73e8;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #f1f1f1;
-      font-size: 0.9rem;
-      color: #666;
-    }
+    :root { --bg:#0b1220; --text:#e5e7eb; --muted:#94a3b8; --ring:#22d3ee; --radius:16px; --shadow:0 12px 30px rgba(0,0,0,.25); }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f8fafc; --text:#0b1220; --muted:#475569; --ring:#0ea5e9; } }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:
+      radial-gradient(900px 520px at 12% -10%, rgba(14,165,233,.14), transparent),
+      radial-gradient(760px 440px at 88% -20%, rgba(34,211,238,.10), transparent), var(--bg);
+      color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+    .container{width:min(1100px,92%); margin:0 auto}
+    header{position:sticky; top:0; backdrop-filter:blur(8px); background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:inline-flex; align-items:center; gap:10px; font-weight:800}
+    .logo{width:28px; height:28px; border-radius:10px; background:linear-gradient(135deg,#0ea5e9,#22d3ee); box-shadow:var(--shadow)}
+
+    .hero{padding:48px 0 10px; text-align:center}
+    .hero h1{font-size:clamp(26px,4vw,44px); margin:.25rem 0}
+    .hero p{color:var(--muted); max-width:780px; margin:0 auto}
+
+    .section{padding:22px 0}
+    .section h2{font-size:clamp(18px,2.2vw,24px); margin:0 0 10px}
+    .links{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+    @media (max-width:1000px){ .links{grid-template-columns:repeat(3,1fr)} }
+    @media (max-width:760px){ .links{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:520px){ .links{grid-template-columns:1fr} }
+
+    .card{display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.1); box-shadow:var(--shadow); text-decoration:none; color:inherit}
+    .card:hover{outline:2px solid color-mix(in srgb, var(--ring) 60%, transparent); transform:translateY(-1px); transition:.15s ease}
+    .card svg{width:22px; height:22px}
+    .label{font-weight:700}
+    .hint{display:block; font-size:12px; color:var(--muted)}
+
+    .embeds{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+    @media (max-width:900px){ .embeds{grid-template-columns:1fr} }
+    iframe.embed{width:100%; border:0; border-radius:14px; background:#fff; min-height:320px}
+    @media (prefers-color-scheme: dark){ iframe.embed{background:#fff} }
+
+    footer{padding:28px 0 40px; color:var(--muted); text-align:center}
+    a.card{min-height:52px}
+    @media (prefers-reduced-motion: reduce){ .card:hover{transform:none} }
   </style>
 </head>
 <body>
   <header>
-    <h1>🌐 My Digital Marketing Hub</h1>
-    <p>Find all my profiles, content, and communities in one place</p>
+    <div class="container nav">
+      <div class="brand"><span class="logo" aria-hidden="true"></span><span>Your Brand</span></div>
+      <nav><a class="card" href="#videos" style="padding:8px 12px">Media</a></nav>
+    </div>
   </header>
 
-  <div class="container">
-    <!-- Directories Section -->
-    <section>
-      <h2>📍 Directories & Listings</h2>
+  <main class="container">
+    <section class="hero">
+      <span class="card" style="display:inline-flex; padding:8px 12px; gap:8px;">⚡️ Cloudflare Pages Ready</span>
+      <h1>Find us across directories, content & communities.</h1>
+      <p>Clean, mobile‑first link hub with Zaraz tracking hooks. Replace the placeholder URLs with your profiles.</p>
+    </section>
+
+    <!-- DIRECTORIES -->
+    <section class="section" aria-label="Directories">
+      <h2>Directories</h2>
       <div class="links">
-        <a href="#" target="_blank"><i class="fa fa-map-marker-alt"></i> Google Business Profile</a>
-        <a href="#" target="_blank"><i class="fa fa-map"></i> Bing Places</a>
-        <a href="#" target="_blank"><i class="fa fa-star"></i> Yelp</a>
-        <a href="#" target="_blank"><i class="fa fa-book"></i> Yellow Pages</a>
-        <a href="#" target="_blank"><i class="fa fa-location-dot"></i> Foursquare</a>
-        <a href="#" target="_blank"><i class="fa fa-leaf"></i> Hotfrog</a>
-        <a href="#" target="_blank"><i class="fa fa-briefcase"></i> Manta</a>
-        <a href="#" target="_blank"><i class="fa fa-database"></i> Crunchbase</a>
-        <a href="#" target="_blank"><i class="fa fa-user"></i> About.me</a>
-        <a href="#" target="_blank"><i class="fa fa-phone"></i> Justdial (India)</a>
-        <a href="#" target="_blank"><i class="fa fa-users"></i> Sulekha (India)</a>
-        <a href="#" target="_blank"><i class="fa fa-store"></i> Indiamart (India)</a>
-        <a href="#" target="_blank"><i class="fa fa-globe"></i> Kompass (Global B2B)</a>
-        <a href="#" target="_blank"><i class="fa fa-handshake"></i> Clutch</a>
-        <a href="#" target="_blank"><i class="fa fa-thumbs-up"></i> GoodFirms</a>
-        <a href="#" target="_blank"><i class="fa fa-chart-line"></i> G2</a>
-        <a href="#" target="_blank"><i class="fa fa-rocket"></i> Product Hunt</a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Bing Places'})" href="https://www.bingplaces.com/">🔎 <span><span class="label">Bing Places</span><span class="hint">/your-business</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Google My Business'})" href="https://g.page/r/YOUR_PLACE_ID">📍 <span><span class="label">Google My Business</span><span class="hint">Place/Reviews link</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Yelp'})" href="https://yelp.com/biz/YOUR-BUSINESS">🍽️ <span><span class="label">Yelp</span><span class="hint">/biz/YOUR-BUSINESS</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Yellow Pages'})" href="https://www.yellowpages.com/search?search_terms=YOUR+BUSINESS">📒 <span><span class="label">Yellow Pages</span><span class="hint">local listing</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Foursquare'})" href="https://foursquare.com/v/YOUR-PLACE">📍 <span><span class="label">Foursquare</span><span class="hint">/v/YOUR-PLACE</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Hotfrog'})" href="https://www.hotfrog.com/company/YOUR-ID">🔥 <span><span class="label">Hotfrog</span><span class="hint">company page</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Manta'})" href="https://www.manta.com/c/mx/YOUR-SLUG">🪙 <span><span class="label">Manta</span><span class="hint">/c/mx/YOUR-SLUG</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Crunchbase'})" href="https://www.crunchbase.com/organization/YOUR-COMPANY">📊 <span><span class="label">Crunchbase</span><span class="hint">/organization/YOUR-COMPANY</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'About.me'})" href="https://about.me/YOURNAME">👤 <span><span class="label">About.me</span><span class="hint">/YOURNAME</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Justdial'})" href="https://www.justdial.com/">🇮🇳 <span><span class="label">Justdial</span><span class="hint">India local</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Sulekha'})" href="https://www.sulekha.com/">🇮🇳 <span><span class="label">Sulekha</span><span class="hint">India services</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Indiamart'})" href="https://www.indiamart.com/YOUR-SUPPLIER">🇮🇳 <span><span class="label">Indiamart</span><span class="hint">supplier page</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Kompass'})" href="https://in.kompass.com/c/YOUR-COMPANY">🌍 <span><span class="label">Kompass</span><span class="hint">global B2B</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Clutch'})" href="https://clutch.co/profile/YOUR-AGENCY">🏆 <span><span class="label">Clutch</span><span class="hint">agencies/consultants</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'GoodFirms'})" href="https://www.goodfirms.co/company/YOUR-AGENCY">✅ <span><span class="label">GoodFirms</span><span class="hint">reviews & listing</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'G2'})" href="https://www.g2.com/products/YOUR-PRODUCT">⭐ <span><span class="label">G2</span><span class="hint">SaaS reviews</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('directory_click',{platform:'Product Hunt'})" href="https://www.producthunt.com/products/YOUR-PRODUCT">🚀 <span><span class="label">Product Hunt</span><span class="hint">launch page</span></span></a>
       </div>
     </section>
 
-    <!-- Publishing Section -->
-    <section>
-      <h2>📝 Publishing Platforms</h2>
+    <!-- PUBLISHING & COMMUNITY -->
+    <section class="section" aria-label="Publishing & Community">
+      <h2>Publishing & Community</h2>
       <div class="links">
-        <a href="#" target="_blank"><i class="fa fa-pen"></i> Medium</a>
-        <a href="#" target="_blank"><i class="fa fa-blog"></i> Tumblr</a>
-        <a href="#" target="_blank"><i class="fa fa-file"></i> Scribd</a>
-        <a href="#" target="_blank"><i class="fa fa-book-open"></i> Issuu</a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('publishing_click',{platform:'Medium'})" href="https://medium.com/@YOUR_HANDLE">✍️ <span><span class="label">Medium</span><span class="hint">@YOUR_HANDLE</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('publishing_click',{platform:'Reddit'})" href="https://www.reddit.com/user/YOUR_USERNAME">👽 <span><span class="label">Reddit</span><span class="hint">u/YOUR_USERNAME</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('publishing_click',{platform:'Tumblr'})" href="https://YOUR-BLOG.tumblr.com">🌀 <span><span class="label">Tumblr</span><span class="hint">your‑blog</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('publishing_click',{platform:'Blogger'})" href="https://YOUR_BLOGGER_SUBDOMAIN.blogspot.com/">📝 <span><span class="label">Blogger</span><span class="hint">yourblog.blogspot.com</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('publishing_click',{platform:'About.me'})" href="https://about.me/YOURNAME">👤 <span><span class="label">About.me</span><span class="hint">profile card</span></span></a>
       </div>
     </section>
 
-    <!-- Q&A Section -->
-    <section>
-      <h2>❓ Q&A & Communities</h2>
+    <!-- Q&A / KNOWLEDGE -->
+    <section class="section" aria-label="Q&A and Knowledge">
+      <h2>Q&A & Knowledge</h2>
       <div class="links">
-        <a href="#" target="_blank"><i class="fa fa-reddit"></i> Reddit</a>
-        <a href="#" target="_blank"><i class="fa fa-question"></i> StackExchange</a>
-        <a href="#" target="_blank"><i class="fa fa-code"></i> StackOverflow</a>
-        <a href="#" target="_blank"><i class="fa fa-comments"></i> Answers.com</a>
-        <a href="#" target="_blank"><i class="fa fa-comments"></i> WikiAnswers</a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('qa_click',{platform:'Stack Overflow'})" href="https://stackoverflow.com/users/YOUR_ID/YOUR_NAME">💡 <span><span class="label">Stack Overflow</span><span class="hint">developer Q&A</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('qa_click',{platform:'Stack Exchange'})" href="https://stackexchange.com/users/YOUR_ID">🧠 <span><span class="label">Stack Exchange</span><span class="hint">network profile</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('qa_click',{platform:'Answers.com'})" href="https://www.answers.com/">❓ <span><span class="label">Answers.com</span><span class="hint">Q&A network</span></span></a>
+        <a class="card" target="_blank" rel="noopener" onclick="track('qa_click',{platform:'WikiAnswers'})" href="https://www.answers.com/t/wikianswers">📚 <span><span class="label">WikiAnswers</span><span class="hint">Answers.com network</span></span></a>
       </div>
     </section>
 
-    <!-- Videos Section -->
-    <section>
-      <h2>🎥 Video Platforms</h2>
-      <div class="links">
-        <a href="#" target="_blank"><i class="fa fa-video"></i> Vimeo</a>
+    <!-- VIDEOS & DOCUMENTS (Embeds) -->
+    <section class="section" id="videos" aria-label="Videos & Documents">
+      <h2>Videos & Documents</h2>
+      <div class="embeds">
+        <!-- Vimeo (Free Plan) embed -->
+        <iframe class="embed" title="Vimeo" src="https://player.vimeo.com/video/76979871" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen onload="track('embed_loaded',{platform:'Vimeo'})"></iframe>
+        <!-- Scribd embed (replace doc id) -->
+        <iframe class="embed" title="Scribd" src="https://www.scribd.com/embeds/YOUR_DOC_ID/content?start_page=1&view_mode=scroll&access_key=key-XXXX" onload="track('embed_loaded',{platform:'Scribd'})"></iframe>
+        <!-- Issuu embed (replace id) -->
+        <iframe class="embed" title="Issuu" src="https://e.issuu.com/embed.html?d=YOUR_PUBLICATION_ID&u=YOUR_USERNAME" onload="track('embed_loaded',{platform:'Issuu'})"></iframe>
       </div>
+      <p style="color:var(--muted); margin-top:8px">Tip: Some platforms don’t allow embeds (e.g., Product Hunt, Crunchbase). Use the buttons above to link out.</p>
     </section>
-  </div>
+  </main>
 
   <footer>
-    © 2025 My Digital Marketing Hub | Built with ❤️ on Cloudflare Free Plan
+    <div class="container">© <span id="year"></span> Your Brand · Built on Cloudflare Pages (Free)</div>
   </footer>
+
+  <script>
+    // Zaraz shim – Cloudflare injects real script when enabled
+    window.zaraz = window.zaraz || { q: [], track: function(e,p){this.q.push({event:e,params:p})} };
+    function track(name, params){ try{ window.zaraz.track(name, params||{}); }catch(e){} }
+
+    // Year + responsive embed height tuning (optional)
+    (function(){
+      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+      const resize=()=>{ document.querySelectorAll('iframe.embed').forEach(f=>{ f.style.height = Math.max(320, Math.min(720, Math.round(window.innerHeight*0.6))) + 'px'; }); };
+      window.addEventListener('resize', resize); window.addEventListener('orientationchange', resize); document.addEventListener('DOMContentLoaded', resize);
+    })();
+  </script>
 </body>
 </html>
