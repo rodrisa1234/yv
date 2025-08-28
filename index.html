@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Marketing Landing Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: #1e90ff;
+      color: white;
+      padding: 20px;
+    }
+    section {
+      margin: 20px auto;
+      max-width: 800px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    video {
+      width: 100%;
+      max-height: 400px;
+      border-radius: 8px;
+      background: black;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005cbf;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚀 Welcome to Our Digital Marketing Page</h1>
+    <p>Engage with video + live camera capture</p>
+  </header>
+
+  <!-- Marketing Video Player -->
+  <section>
+    <h2>Our Marketing Video</h2>
+    <video controls autoplay muted loop>
+      <source src="your-video.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </section>
+
+  <!-- Webcam Capture -->
+  <section>
+    <h2>Try Your Camera</h2>
+    <video id="cam" autoplay playsinline></video><br>
+    <button onclick="startCamera()">Start Camera</button>
+    <button onclick="stopCamera()">Stop Camera</button>
+  </section>
+
+  <script>
+    let stream;
+    async function startCamera() {
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        document.getElementById('cam').srcObject = stream;
+      } catch (err) {
+        alert("Camera access denied: " + err);
+      }
+    }
+    function stopCamera() {
+      if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+        document.getElementById('cam').srcObject = null;
+      }
+    }
+  </script>
+</body>
+</html>
