@@ -3,88 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Marketing Landing Page</title>
+  <title>My Digital Marketing Hub</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: #f7f9fc;
       color: #333;
-      text-align: center;
     }
     header {
-      background: #1e90ff;
+      background: #1a73e8;
       color: white;
       padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
     }
     section {
-      margin: 20px auto;
-      max-width: 800px;
+      margin-bottom: 40px;
+    }
+    section h2 {
+      color: #1a73e8;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
       background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    video {
-      width: 100%;
-      max-height: 400px;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      background: black;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: 0.3s;
     }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #1e90ff;
+    .links a:hover {
+      background: #1a73e8;
       color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      border-color: #1a73e8;
     }
-    button:hover {
-      background: #005cbf;
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #f1f1f1;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🚀 Welcome to Our Digital Marketing Page</h1>
-    <p>Engage with video + live camera capture</p>
+    <h1>🌐 My Digital Marketing Hub</h1>
+    <p>Find all my profiles, content, and communities in one place</p>
   </header>
 
-  <!-- Marketing Video Player -->
-  <section>
-    <h2>Our Marketing Video</h2>
-    <video controls autoplay muted loop>
-      <source src="your-video.mp4" type="video/mp4">
-      Your browser does not support video.
-    </video>
-  </section>
+  <div class="container">
+    <!-- Directories Section -->
+    <section>
+      <h2>📍 Directories & Listings</h2>
+      <div class="links">
+        <a href="#" target="_blank"><i class="fa fa-map-marker-alt"></i> Google Business Profile</a>
+        <a href="#" target="_blank"><i class="fa fa-map"></i> Bing Places</a>
+        <a href="#" target="_blank"><i class="fa fa-star"></i> Yelp</a>
+        <a href="#" target="_blank"><i class="fa fa-book"></i> Yellow Pages</a>
+        <a href="#" target="_blank"><i class="fa fa-location-dot"></i> Foursquare</a>
+        <a href="#" target="_blank"><i class="fa fa-leaf"></i> Hotfrog</a>
+        <a href="#" target="_blank"><i class="fa fa-briefcase"></i> Manta</a>
+        <a href="#" target="_blank"><i class="fa fa-database"></i> Crunchbase</a>
+        <a href="#" target="_blank"><i class="fa fa-user"></i> About.me</a>
+        <a href="#" target="_blank"><i class="fa fa-phone"></i> Justdial (India)</a>
+        <a href="#" target="_blank"><i class="fa fa-users"></i> Sulekha (India)</a>
+        <a href="#" target="_blank"><i class="fa fa-store"></i> Indiamart (India)</a>
+        <a href="#" target="_blank"><i class="fa fa-globe"></i> Kompass (Global B2B)</a>
+        <a href="#" target="_blank"><i class="fa fa-handshake"></i> Clutch</a>
+        <a href="#" target="_blank"><i class="fa fa-thumbs-up"></i> GoodFirms</a>
+        <a href="#" target="_blank"><i class="fa fa-chart-line"></i> G2</a>
+        <a href="#" target="_blank"><i class="fa fa-rocket"></i> Product Hunt</a>
+      </div>
+    </section>
 
-  <!-- Webcam Capture -->
-  <section>
-    <h2>Try Your Camera</h2>
-    <video id="cam" autoplay playsinline></video><br>
-    <button onclick="startCamera()">Start Camera</button>
-    <button onclick="stopCamera()">Stop Camera</button>
-  </section>
+    <!-- Publishing Section -->
+    <section>
+      <h2>📝 Publishing Platforms</h2>
+      <div class="links">
+        <a href="#" target="_blank"><i class="fa fa-pen"></i> Medium</a>
+        <a href="#" target="_blank"><i class="fa fa-blog"></i> Tumblr</a>
+        <a href="#" target="_blank"><i class="fa fa-file"></i> Scribd</a>
+        <a href="#" target="_blank"><i class="fa fa-book-open"></i> Issuu</a>
+      </div>
+    </section>
 
-  <script>
-    let stream;
-    async function startCamera() {
-      try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-        document.getElementById('cam').srcObject = stream;
-      } catch (err) {
-        alert("Camera access denied: " + err);
-      }
-    }
-    function stopCamera() {
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
-        document.getElementById('cam').srcObject = null;
-      }
-    }
-  </script>
+    <!-- Q&A Section -->
+    <section>
+      <h2>❓ Q&A & Communities</h2>
+      <div class="links">
+        <a href="#" target="_blank"><i class="fa fa-reddit"></i> Reddit</a>
+        <a href="#" target="_blank"><i class="fa fa-question"></i> StackExchange</a>
+        <a href="#" target="_blank"><i class="fa fa-code"></i> StackOverflow</a>
+        <a href="#" target="_blank"><i class="fa fa-comments"></i> Answers.com</a>
+        <a href="#" target="_blank"><i class="fa fa-comments"></i> WikiAnswers</a>
+      </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section>
+      <h2>🎥 Video Platforms</h2>
+      <div class="links">
+        <a href="#" target="_blank"><i class="fa fa-video"></i> Vimeo</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 My Digital Marketing Hub | Built with ❤️ on Cloudflare Free Plan
+  </footer>
 </body>
 </html>
